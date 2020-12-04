@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+function first(array,cb){
+   cb(array[0]);
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,6 +51,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(array, cb){
+  cb(array[array.length-1])
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -66,6 +72,10 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(x,y,cb){
+  return cb(x*y)
+  
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -84,7 +94,15 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+//Code Here  
+function contains(array, name, cb){
+  for(let i=0; i < array.length; i++){
+  if(array[i]===name){
+    cb(true)
+  } else {
+    cb(false)
+  }
+}}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +124,17 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr,cb){
+  // uniqArr = []
+  for(i = 0; i < arr.length; i++){
+    for(j = i+1;j < arr.length; j++){
+      if(arr[i] === arr[j]){
+        arr.splice(j,1)
+      }
+    }
+  }
+  cb(arr);
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,7 +152,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
-
+function each(arr,cb){
+  for(i=0;i<arr.length;i++){
+  cb(arr[i],i)
+  }
+  }
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -140,6 +173,13 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(users,id,cb){
+  for(let i=0; i<users.length;i++){
+  if( users[i].id == id ){
+  cb(users[i])
+  }
+  }
+  }
 
 // Do not edit the code below.
 var users = [
